@@ -172,11 +172,11 @@ if(Sky.support.VBScript){
 					var property=conf.property[key];
 					buffer.push(
 						//由于不知对方会传入什么,因此set, let都用上
-						'Public Property Let ['+key+'](value)', //setter
-						'	Call VBClassSetter(Me, [__propertys__], "'+key+'",value)',
+						'Public Property Let ['+key+'](var)', //setter
+						'	Call VBClassSetter(Me, [__propertys__], "'+key+'",var)',
 						'End Property',
-						'Public Property Set ['+key+'](value)', //setter
-						'	Call VBClassSetter(Me, [__propertys__], "' + key + '",value)',
+						'Public Property Set ['+key+'](var)', //setter
+						'	Call VBClassSetter(Me, [__propertys__], "' + key + '",var)',
 						'End Property',
 						'Public Property Get ['+key+']', //getter
 						'	On Error Resume Next', //必须优先使用set语句,否则它会误将数组当字符串返回
