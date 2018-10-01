@@ -145,7 +145,7 @@ if(Sky.support.VBScript){
 	window.VBClassFactory=function(conf){
 		var className=VBClassPool.get(conf);
 		if(!className){
-			className="VBClass_"+Sky.nextSequence();
+			className="VBClass_"+Sky.uniqueId();
 			VBClassPool.set(conf,className);
 			var buffer = ["Class "+className];
 			var key;
