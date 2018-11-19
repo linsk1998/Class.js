@@ -39,9 +39,7 @@
 		<button class="btn btn-primary" type="button" onClick="tom.sleep()">sleep</button>
 	</div>
 	<pre><span class="reserved"><code>var</code></span><code> <span class="variable">Animal</span>=<span class="variable">Sky</span>.<span class="call">declare</span>({
-	<span class="property">'extends'</span>:<span class="variable">EventEmitter</span>,<span class="comment">//事件分发类</span>
 	<span class="property">'constructor'</span>:<span class="reserved">function</span>(){
-		<span class="variable">EventEmitter</span>.<span class="call">apply</span>(<span class="reserved">this</span>);
 		<span class="reserved">this</span>.<span class="member">birthday</span>=<span class="reserved">new</span> Date(<span class="string">"2001/02/01 00:00:00"</span>);
 	},
 	<span class="property">'member'</span>:{<span class="comment">//需要声明</span>
@@ -73,9 +71,7 @@
 	},
 	<span class="property">'method'</span>:{
 		<span class="method">'say'</span>:<span class="reserved">function</span>(){
-			<span class="reserved">if</span>(<span class="reserved">this</span>.<span class="call">emit</span>(<span class="string">'say'</span>)){<span class="comment">//触发发生前的事件,根据返回值判断是否取消</span>
-				<span class="variable">Animal</span>.<span class="member">prototype</span>.<span class="member">say</span>.<span class="call">call</span>(<span class="reserved">this</span>,<span class="string">"喵"</span>);<span class="comment">//super.say("喵")</span>
-			}
+			<span class="variable">Animal</span>.<span class="member">prototype</span>.<span class="member">say</span>.<span class="call">call</span>(<span class="reserved">this</span>,<span class="string">"喵"</span>);<span class="comment">//super.say("喵")</span>
 		}
 	}
 });
@@ -94,9 +90,7 @@
 </div>
 <script type="text/javascript">
 	var Animal=Sky.declare({
-		'extends':EventEmitter,
 		'constructor':function(){
-			EventEmitter.apply(this);
 			this.birthday=new Date("2001/02/01 00:00:00");
 		},
 		'member':{//需要声明
@@ -128,9 +122,7 @@
 		},
 		'method':{
 			'say':function(){
-				if(this.emit('say')){//触发发生前的事件,根据返回值判断是否取消
-					Animal.prototype.say.call(this,"喵");//super.say("喵")
-				}
+				Animal.prototype.say.call(this,"喵");//super.say("喵")
 			}
 		}
 	});
